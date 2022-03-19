@@ -38,102 +38,102 @@ $("body").on("keyup", "#selection__Input", function (e) {
   }
 });
 
-const sendAuth = () => {
-  if ($("#auth_Email").prop("disabled")) return;
-  $("#error_msg_1").html("");
-  $("#error_msg_2").html("");
+// const sendAuth = () => {
+//   if ($("#auth_Email").prop("disabled")) return;
+//   $("#error_msg_1").html("");
+//   $("#error_msg_2").html("");
 
-  let email = $("#auth_Email").val();
-  let password = $("#auth_Pass").val();
+//   let email = $("#auth_Email").val();
+//   let password = $("#auth_Pass").val();
 
-  if (email.length < 5) {
-    $("#error_msg_1").html("Недопустимая почта!");
-    return;
-  }
+//   if (email.length < 5) {
+//     $("#error_msg_1").html("Недопустимая почта!");
+//     return;
+//   }
 
-  if (password.length < 6 || password.length > 32) {
-    $("#error_msg_2").html("Недопустимый пароль!");
-    return;
-  }
+//   if (password.length < 6 || password.length > 32) {
+//     $("#error_msg_2").html("Недопустимый пароль!");
+//     return;
+//   }
 
-  $("#auth_Email").prop("disabled", true);
-  $("#auth_Pass").prop("disabled", true);
+//   $("#auth_Email").prop("disabled", true);
+//   $("#auth_Pass").prop("disabled", true);
 
-  $.ajax({
-    url: "/do/signin",
-    type: "POST",
-    dataType: "html",
-    data: {
-      auth: "",
-      email: email,
-      password: password,
-    },
-    success: function (response) {
-      let str = response.split(" | ");
+//   $.ajax({
+//     url: "/do/signin",
+//     type: "POST",
+//     dataType: "html",
+//     data: {
+//       auth: "",
+//       email: email,
+//       password: password,
+//     },
+//     success: function (response) {
+//       let str = response.split(" | ");
 
-      if (str[0].includes("true")) {
-        notyf.success(str[1]);
-        setTimeout(() => {
-          window.location = "/" + str[2];
-        }, 1500);
-      } else {
-        notyf.error(str[1]);
-        $("#auth_Email").prop("disabled", false);
-        $("#auth_Pass").prop("disabled", false);
-      }
-    },
-    error: function (response) {
-      notyf.error(response);
-      $("#auth_Email").prop("disabled", false);
-      $("#auth_Pass").prop("disabled", false);
-    },
-  });
-};
+//       if (str[0].includes("true")) {
+//         notyf.success(str[1]);
+//         setTimeout(() => {
+//           window.location = "/" + str[2];
+//         }, 1500);
+//       } else {
+//         notyf.error(str[1]);
+//         $("#auth_Email").prop("disabled", false);
+//         $("#auth_Pass").prop("disabled", false);
+//       }
+//     },
+//     error: function (response) {
+//       notyf.error(response);
+//       $("#auth_Email").prop("disabled", false);
+//       $("#auth_Pass").prop("disabled", false);
+//     },
+//   });
+// };
 
-const toTask = (lessonId) => {
-    $.ajax({
-      url: "/do/taskManager",
-      type: "POST",
-      dataType: "html",
-      data: {
-        getTask: "true",
-        lessonId: lessonId,
-      },
-      success: function (response) {
-        if (response) {
-          $("#lesson").html(response);
-        }
-      },
-      error: function (response) {
-        notyf.error(response);
-      },
-    });
-  },
-  endTask = (lessonId) => {
-    let answer = $("#lesson_answer").val();
-    $.ajax({
-      url: "/do/taskManager",
-      type: "POST",
-      dataType: "html",
-      data: {
-        endTask: "true",
-        lessonId: lessonId,
-        answer: answer,
-      },
-      success: function (response) {
-        let str = response.split(" | ");
-        console.log(response);
-        if (str[0].includes("true")) {
-          $("#lesson").html(str[1]);
-        } else {
-          notyf.error(str[1]);
-        }
-      },
-      error: function (response) {
-        notyf.error(response);
-      },
-    });
-  };
+// const toTask = (lessonId) => {
+//     $.ajax({
+//       url: "/do/taskManager",
+//       type: "POST",
+//       dataType: "html",
+//       data: {
+//         getTask: "true",
+//         lessonId: lessonId,
+//       },
+//       success: function (response) {
+//         if (response) {
+//           $("#lesson").html(response);
+//         }
+//       },
+//       error: function (response) {
+//         notyf.error(response);
+//       },
+//     });
+//   },
+//   endTask = (lessonId) => {
+//     let answer = $("#lesson_answer").val();
+//     $.ajax({
+//       url: "/do/taskManager",
+//       type: "POST",
+//       dataType: "html",
+//       data: {
+//         endTask: "true",
+//         lessonId: lessonId,
+//         answer: answer,
+//       },
+//       success: function (response) {
+//         let str = response.split(" | ");
+//         console.log(response);
+//         if (str[0].includes("true")) {
+//           $("#lesson").html(str[1]);
+//         } else {
+//           notyf.error(str[1]);
+//         }
+//       },
+//       error: function (response) {
+//         notyf.error(response);
+//       },
+//     });
+//   };
 
 var app = new Vue({
   el: "#app",

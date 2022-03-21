@@ -18,6 +18,10 @@ body {
   position: relative;
 }
 
+* {
+  transition: all cubic-bezier(0.6, 0.04, 0.98, 0.335) 0.2s;
+}
+
 .root {
   position: absolute;
   border: 1.0460251046vh solid #F5F3F5;
@@ -29,8 +33,14 @@ body {
 .root .logo {
   width: 25.4184100418vh;
   height: 14.2259414226vh;
+  margin-top: 10px;
+  margin-left: 50px;
+}
+.root .iconProfile {
+  position: absolute;
+  right: 0;
   margin-top: 4.6025104603vh;
-  margin-left: 8.1589958159vh;
+  margin-right: 8.1589958159vh;
 }
 
 .startPage {
@@ -147,10 +157,36 @@ body {
   border: 6px solid #FFFFFF;
   box-sizing: border-box;
   border-radius: 26px;
-  color: #FFFFFF;
+  color: #5a48ea;
 }
 .selectionPage input::placeholder {
   color: white;
+}
+
+.nav {
+  position: absolute;
+  top: 0;
+  right: 50px;
+  top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.nav svg, .nav p {
+  margin: 0 !important;
+  position: static !important;
+}
+.nav svg {
+  padding-left: 40px;
+}
+.nav .navbtn {
+  font-weight: bold;
+  height: 100%;
+}
+
+.input__Form input {
+  padding-left: 47px !important;
 }
 
 .loginPage {
@@ -188,6 +224,7 @@ body {
   box-shadow: inset -4px -4px 21px rgba(255, 255, 255, 0.25), inset 6px 6px 19px rgba(255, 255, 255, 0.25);
   border-radius: 101px;
   padding: 10px;
+  text-transform: uppercase;
   font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
@@ -242,6 +279,7 @@ body {
   transform: translate(-50%, -50%);
   width: 715px;
   height: 349px;
+  text-transform: uppercase;
   background: rgba(255, 255, 255, 0.16);
   box-shadow: inset -4px -4px 21px rgba(255, 255, 255, 0.25), inset 6px 6px 19px rgba(255, 255, 255, 0.25);
   border-radius: 101px;
@@ -250,6 +288,8 @@ body {
   justify-content: center;
   align-items: center;
   text-transform: uppercase;
+  padding-top: 50px;
+  padding-bottom: 30px;
 }
 .success h1 {
   font-family: "Montserrat";
@@ -266,11 +306,13 @@ body {
   mix-blend-mode: normal;
   border-radius: 37px;
   padding: 5px 10px;
+  padding: 20px 40px;
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 600;
   font-size: 30px;
   line-height: 37px;
+  text-transform: uppercase;
   text-align: center;
   color: #FFFFFF;
   cursor: pointer;
@@ -351,6 +393,7 @@ body {
   box-shadow: inset -4px -4px 21px rgba(255, 255, 255, 0.25), inset 6px 6px 19px rgba(255, 255, 255, 0.25);
   border-radius: 101px;
   padding: 10px;
+  text-transform: uppercase;
   font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
@@ -384,8 +427,11 @@ body {
 }
 .registPage .input__Form input,
 .registPage .input__Form select {
+  border: none;
   padding: 5px;
+  padding-left: 5%;
   background: none;
+  outline: none;
   font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
@@ -394,6 +440,17 @@ body {
   text-align: left;
   width: 100%;
   color: white;
+}
+.registPage .input__Form input::after,
+.registPage .input__Form select::after {
+  content: "";
+  display: block;
+  width: 25px;
+  height: 25px;
+  background-image: url("/put_k_strelke");
+  position: absolute;
+  right: 5px;
+  top: 5px;
 }
 .registPage .input__Form input option,
 .registPage .input__Form select option {
@@ -517,6 +574,141 @@ body {
   color: #D139BF;
 }
 
+.editbox {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+.editbox img {
+  width: 50px;
+  height: 50px;
+}
+.editbox .lock {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.editbox .eye-visible {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: flex-end;
+}
+.editbox a {
+  height: 100%;
+  width: 100%;
+}
+.editbox .password-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  height: 43px;
+  background: url(/assets/img/view\ 1\ \(3\).svg) 0 0 no-repeat;
+}
+.editbox .password-control.view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  width: 60px;
+  height: 60px;
+  background: url(/assets/img/vision\ 1.svg) 0 0 no-repeat !important;
+  background-size: cover;
+}
+.editbox:nth-last-child(1) .editInfo {
+  display: flex;
+  justify-content: space-between !important;
+}
+.editbox:nth-last-child(1) .editInfo .password {
+  width: 65%;
+}
+.editbox:nth-last-child(1) .eye-visible {
+  margin-right: 22px;
+}
+
+.edit button {
+  background: linear-gradient(90deg, #D139BF 2.67%, #9E43D1 97.83%);
+  mix-blend-mode: normal;
+  border-radius: 3.870292887vh;
+  text-transform: uppercase;
+  width: 41.3807531381vh;
+  height: 7.3221757322vh;
+  font-weight: 600;
+  font-size: 3.1380753138vh;
+  line-height: 3.870292887vh;
+  color: #F5F3F5;
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 100px;
+}
+.edit .helloName {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 59px;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #FFFFFF;
+}
+.edit .editInfo {
+  margin-left: 110px;
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: inset -4px -4px 21px rgba(255, 255, 255, 0.25), inset 6px 6px 19px rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  box-sizing: border-box;
+  border-radius: 26px;
+  padding: 5px;
+  width: 930px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.edit .editInfo p {
+  margin-right: 10px;
+  font-size: 40px;
+  color: #D139BF;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 35px;
+}
+.edit .editInfo .small {
+  width: 20%;
+}
+.edit .editInfo input {
+  padding: 5px;
+  background: none;
+  width: 80%;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 49px;
+  text-align: left;
+  color: white;
+  font-weight: 600;
+}
+.edit .editInfo input::placeholder {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 49px;
+  text-align: left;
+  color: rgba(255, 255, 255, 0.38);
+}
+
 .lesson {
   position: absolute;
   width: 100%;
@@ -617,6 +809,7 @@ body {
   color: white;
 }
 .lesson button.superbutton {
+  position: relative;
   right: 50px;
   bottom: 50px;
   position: absolute;
@@ -625,13 +818,23 @@ body {
   border-radius: 3.870292887vh;
   width: 25% !important;
   text-transform: uppercase;
-  width: 31.3807531381vh;
+  width: 25% !important;
   height: 7.3221757322vh;
   font-weight: 600;
   font-size: 3.1380753138vh;
   line-height: 3.870292887vh;
   color: #F5F3F5;
   cursor: pointer;
+}
+.lesson button.superbutton svg {
+  position: absolute;
+  top: 50%;
+  left: 80%;
+  height: 100%;
+  transform: translateY(-50%);
+}
+.lesson button.superbutton p {
+  margin-right: 10%;
 }
 .lesson .text {
   font-weight: 400;
@@ -657,5 +860,177 @@ body {
   font-weight: 300;
   font-size: 36px;
   line-height: 44px;
+  color: #FFFFFF;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+*::-webkit-scrollbar-track {
+  -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+  background-color: #ffffff00;
+  border-radius: 11px;
+}
+*::-webkit-scrollbar-thumb {
+  border-radius: 11px;
+  background: linear-gradient(90deg, #D139BF, #9831C7);
+}
+
+.studentLk .groupCheck {
+  position: absolute;
+  bottom: 0;
+  padding: 76px 68px;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  align-items: center;
+}
+.studentLk .groupCheck button {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 393px;
+  height: 192px;
+  border: 7px solid #F5F3F5;
+  box-sizing: border-box;
+  border-radius: 38px;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 44px;
+  text-align: center;
+  color: #FFFFFF;
+}
+.studentLk .groupCheck button svg {
+  width: 100px;
+  height: 50px;
+  transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s;
+}
+.studentLk .groupCheck button:hover {
+  transition: all 12s ease 0s;
+}
+.studentLk .groupCheck button:hover svg {
+  transform: translateX(5px);
+}
+.studentLk .groupCheck .block {
+  height: 176px;
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: inset -4px -4px 21px rgba(255, 255, 255, 0.25), inset 6px 6px 19px rgba(255, 255, 255, 0.25);
+  border-radius: 101px;
+}
+.studentLk .groupCheck .block .groups {
+  display: flex;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+  overflow: auto;
+  margin: auto;
+  width: 100%;
+  transform: scale(80%);
+  max-width: 50vw;
+}
+.studentLk .groupCheck .block .groups::-webkit-scrollbar {
+  width: 10px;
+}
+.studentLk .groupCheck .block .groups::-webkit-scrollbar-track {
+  -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+  background-color: #ffffff00;
+  border-radius: 11px;
+}
+.studentLk .groupCheck .block .groups::-webkit-scrollbar-thumb {
+  border-radius: 11px;
+  background: linear-gradient(90deg, #D139BF, #9831C7);
+}
+.studentLk .groupCheck .block .groups a {
+  cursor: pointer;
+  padding: 0 100px 0 100px;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 59px;
+  /* identical to box height */
+  align-self: center;
+  text-align: center;
+  text-decoration-line: underline;
+  transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s;
+  color: #FFFFFF;
+}
+.studentLk .groupCheck .block .groups a:hover {
+  transform: scale(110%);
+}
+
+.groupInfo .studList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  overflow: auto;
+  max-height: 60vh;
+}
+.groupInfo .studList::-webkit-scrollbar {
+  width: 20px;
+}
+.groupInfo .studList::-webkit-scrollbar-track {
+  -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+  background-color: #ffffff00;
+  border-radius: 11px;
+}
+.groupInfo .studList::-webkit-scrollbar-thumb {
+  border-radius: 11px;
+  background: linear-gradient(90deg, #D139BF, #9831C7);
+}
+.groupInfo .studList .infoBox {
+  margin: 20px;
+  width: 40%;
+  border: 7px solid #F5F3F5;
+  box-sizing: border-box;
+  border-radius: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.groupInfo .studList .infoBox .name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 30%;
+}
+.groupInfo .studList .infoBox p {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 44px;
+  text-align: center;
+  color: #FFFFFF;
+}
+.groupInfo .studList .infoBox .steps {
+  width: 50%;
+}
+.groupInfo .studList .infoBox .steps .color1 p {
+  color: #9831C7 !important;
+}
+.groupInfo .studList .infoBox .steps .color2 p {
+  color: #D139BF;
+}
+.groupInfo .studList .infoBox .steps .color3 p {
+  color: #5A48EA;
+}
+.groupInfo .studList .infoBox .steps p {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 37px;
+  text-align: center;
+  color: #9831C7;
+}
+.groupInfo .helloName {
+  text-align: center;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 59px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
   color: #FFFFFF;
 }/*# sourceMappingURL=main.css.map */

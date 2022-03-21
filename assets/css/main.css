@@ -1033,4 +1033,48 @@ body {
   transform: translateX(-50%);
   text-align: center;
   color: #FFFFFF;
+}
+
+@media screen and (max-width: 1900px) {
+  .studentLk .info .block {
+    height: 80px;
+    width: 60%;
+    padding: 10px 0;
+    margin-top: 20px;
+  }
+
+  .studentLk .helloName {
+    font-size: 40px;
+    margin-top: 1%;
+  }
+
+  .studentLk .groupCheck {
+    padding: 30px 20px;
+    width: 98%;
+  }
+
+  .studentLk .groupCheck button {
+    height: 5%;
+  }
+
+  .studentLk .info {
+    margin-top: 1px;
+  }
+
+  .studentLk .groupCheck .block {
+    height: 100px;
+  }
+
+  .studentLk .groupCheck .block .groups {
+    transform: scale(50%);
+    overflow: visible;
+  }
+
+  .groupInfo .studList .infoBox p {
+    font-size: 20px;
+  }
+
+  .groupInfo .studList .infoBox .steps p {
+    font-size: 20px !important;
+  }
 }/*# sourceMappingURL=main.css.map */

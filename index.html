@@ -532,7 +532,7 @@
                         <div v-if="lesson.lessonId == 3" key="lesson3" class="lesson1">
                             <div class="container">
                                 <p class="text">
-                                    урок 3
+                                    Дайте определение термину <b>стиль оформления</b>
                                 </p>   
                             </div>
                             
@@ -570,8 +570,8 @@
                             <h1>успешно</h1>
                             <h1>пройден!</h1>
                         
-                            <button v-if="profile.step2 != 1" @click="setLesson()">продолжить</button>
-                            <button v-if="profile.step2 == 1" @click="setLesson()">сертификат</button>
+                            <button v-if="profile.step3 != 1" @click="setLesson()">продолжить</button>
+                            <button v-if="profile.step3 == 1" @click="setLesson()">сертификат</button>
                         </div>
                     
                     </transition>

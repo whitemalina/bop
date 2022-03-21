@@ -153,7 +153,7 @@ var app = new Vue({
   el: "#app",
   data: {
    // page: "startPage",
-    page: "lkAdmin", // temp
+    page: "startPage", // temp
     selectionInfo: null,
     user: null,
     editPassword: '       ',
@@ -194,7 +194,7 @@ var app = new Vue({
     },
 
     profile: {
-      isTeacher: true,
+      isTeacher: false,
       name: null,
       fio: '',
       surname: '',
@@ -221,15 +221,15 @@ var app = new Vue({
       tasks: [
         {
           id: 1,
-          correctAnswer: "test1",
+          correctAnswer: "это информация представленная в определенном виде которая располагается на Web-сервере",
         },
         {
           id: 2,
-          correctAnswer: "test2",
+          correctAnswer: "title",
         },
         {
           id: 3,
-          correctAnswer: "test3",
+          correctAnswer: "определяет внешний вид документа",
         },
       ],
     },
@@ -390,6 +390,12 @@ var app = new Vue({
       this.profile.group = profile.group
 
       this.profile.fio = this.profile.surname + ' ' + this.profile.name + ' ' + this.profile.patronymic
+      
+      if (profile.IsAdmin == '1') {
+        this.profile.isTeacher = true
+      } else 
+
+      console.log(profile);
 
       this.profile.score = profile.score;
       profile.completed[0] == 1 ? (this.profile.step1 = 1) : (this.profile.step1 = 0);
@@ -603,6 +609,7 @@ var app = new Vue({
       }
     },
     checkAnswer(taskId) {
+      //
       if (
         this.lesson.answer.split(/[<,>,/]/gi).join("") ==
         this.lesson.tasks[taskId - 1].correctAnswer
@@ -614,7 +621,9 @@ var app = new Vue({
         this.lesson.finished = 1;
         // this.lesson.lastL;
       } else {
+        console.log(this.lesson.answer.split(/[<,>,/]/gi).join(""));
         this.lesson.answer = ''
+        
         notyf.error("Ответ не правильный");
       }
       console.log(this.lesson.answer.split(/[<,>,/]/gi).join(""));

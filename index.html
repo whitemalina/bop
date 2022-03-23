@@ -95,19 +95,19 @@
 
                 <!-- Регистрация -->
                 <div v-if="page == 'regist'" key="regist" class="registPage">
-                    <div class="status">
-                        <a id="step1" class="point active"></a>
-                        <hr>
-                        <a id="step2" class="point"></a>
-                        <hr>
-                        <a id="step3" class="point"></a>
-                    </div>
-                    <h1>введите ваши данные</h1>
+                    
+                    <h1 style="text-transform: uppercase; t">введите ваши данные</h1>
 
                     <transition name="fade" mode="out-in">
                         <!-- Первый шаг -->
                         <div v-if="regist.step == 1" key="step1" class="regForm" id="regist_menu1">
-                            
+                            <div class="status">
+                                <a id="step1" class="point active"></a>
+                                <hr>
+                                <a id="step2" class="point"></a>
+                                <hr>
+                                <a id="step3" class="point"></a>
+                            </div>
                         
                             <div class="input__Form">
                                 <svg width="64" height="14" viewBox="0 0 64 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -137,6 +137,13 @@
                         </div>
                         <!-- Второй шаг -->
                         <div v-if="regist.step == 2" key="step2" class="regForm" id="regist_menu2">
+                            <div class="status">
+                                <a id="step1" class="point"></a>
+                                <hr>
+                                <a id="step2" class="point active"></a>
+                                <hr>
+                                <a id="step3" class="point"></a>
+                            </div>
                             <div class="input__Form">
                                 <svg width="64" height="14" viewBox="0 0 64 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <line y1="1" x2="47" y2="1" stroke="white" stroke-width="2"/>
@@ -160,6 +167,13 @@
                         </div>
                         <!-- Третий шаг -->
                         <div v-if="regist.step == 3" key="step3" class="regForm" id="regist_menu3">
+                            <div class="status">
+                                <a id="step1" class="point"></a>
+                                <hr>
+                                <a id="step2" class="point"></a>
+                                <hr>
+                                <a id="step3" class="point active"></a>
+                            </div>
                             <div class="input__Form">
                                 <svg width="64" height="14" viewBox="0 0 64 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <line y1="1" x2="47" y2="1" stroke="white" stroke-width="2"/>
